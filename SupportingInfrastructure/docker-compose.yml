@@ -1,0 +1,88 @@
+version: '2'
+services:
+  zookeeper:
+    image: judo/zookeeper:0.2
+    command: zookeeper-1 1
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:0.10.1.0
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_LOG_DIRS=/kafka/kafka-logs
+      - KAFKA_DELETE_TOPIC_ENABLE=true
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_CREATE_TOPICS=JudoConnectConfig:1:1,JudoConnectOffsets:1:1,JudoConnectStatus:1:1
+      - KAFKA_ADVERTISED_HOST_NAME=kafka
+      - KAFKA_ADVERTISED_PORT=9092
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+
+  schemaregistry:
+      image: confluentinc/cp-schema-registry:3.1.1
+      environment:
+        - SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL=zookeeper:2181
+        - SCHEMA_REGISTRY_LISTENERS=http://0.0.0.0:8081
+        - SCHEMA_REGISTRY_HOST_NAME=schemaregistry
+        - SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_METHODS=*
+        - SCHEMA_REGISTRY_ACCESS_CONTROL_ALLOW_ORIGIN=*
+      ports:
+        - "8081:8081"
+      depends_on:
+        - zookeeper
+
+  kafkaconnect:
+      image: judo/kafka-connect:3.1.1-RC
+      environment:
+        - CONNECT_REST_PORT=8082
+        - CONNECT_GROUP_ID=judo-connect
+        - CONNECT_CONFIG_STORAGE_TOPIC=JudoConnectConfig
+        - CONNECT_OFFSET_STORAGE_TOPIC=JudoConnectOffsets
+        - CONNECT_STATUS_STORAGE_TOPIC=JudoConnectStatus
+        - CONNECT_KEY_CONVERTER=io.confluent.connect.avro.AvroConverter
+        - CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL=http://schemaregistry:8081
+        - CONNECT_VALUE_CONVERTER=io.confluent.connect.avro.AvroConverter
+        - CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL=http://schemaregistry:8081
+        - CONNECT_INTERNAL_KEY_CONVERTER=org.apache.kafka.connect.json.JsonConverter
+        - CONNECT_INTERNAL_VALUE_CONVERTER=org.apache.kafka.connect.json.JsonConverter
+        - CONNECT_REST_ADVERTISED_HOST_NAME=kafkaconnect
+        - CONNECT_BOOTSTRAP_SERVERS=kafka:9092
+        - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+        - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+        - AWS_DEFAULT_REGION=eu-west-1
+      ports:
+        - "8082:8082"
+      depends_on:
+        - kafka
+        - schemaregistry
+
+  kafkaconnectui:
+      image: landoop/kafka-connect-ui
+      ports:
+        - "8000:8000"
+      environment:
+        - CONNECT_URL=http://kafkaconnect:8082
+      depends_on:
+        - kafkaconnect
+        
+  schemaregistryui:
+    image: landoop/schema-registry-ui
+    environment:
+      - SCHEMAREGISTRY_URL=http://schemaregistry:8081
+      - PROXY=true
+    ports:
+      - "8001:8000"
+    depends_on:
+      - schemaregistry
+  
+  sqlserver:
+    image: microsoft/mssql-server-linux:latest
+    ports:
+      - "1400:1433"
+    environment: 
+      - MSSQL_PID=Express
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Y37uigwzrUA%
