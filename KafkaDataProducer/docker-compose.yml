@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  kafkadataproducer:
-    image: kafkadataproducer
-    build:
-      context: .
-      dockerfile: KafkaDataProducer\Dockerfile
