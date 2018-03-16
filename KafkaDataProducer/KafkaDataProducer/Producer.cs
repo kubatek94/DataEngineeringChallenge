@@ -10,7 +10,7 @@ namespace KafkaDataProducer
 {
     class Producer
     {
-        private readonly string SchemaRegistryConnection = "http://localhost:8081";
+        private readonly string SchemaRegistryConnection = "http://schemaregistry:8081";
         private readonly string Topic = "Transactions";
         private readonly IdGenerator _idGenerator;
 

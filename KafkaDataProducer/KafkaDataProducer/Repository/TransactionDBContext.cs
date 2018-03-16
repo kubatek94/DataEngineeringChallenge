@@ -12,7 +12,7 @@ namespace KafkaDataProducer.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=localhost,1400;Database=TransactionDb;user id=sa;password=Y37uigwzrUA%;");
+            optionsBuilder.UseSqlServer(@"Server=sqlserver,1433;Database=TransactionDb;user id=sa;password=Y37uigwzrUA%;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
