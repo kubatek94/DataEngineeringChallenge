@@ -107,6 +107,26 @@ namespace KafkaDataProducer.Migrations
                 name: "IX_Transactions_CustomerId",
                 table: "Transactions",
                 column: "CustomerId");
+
+            migrationBuilder.Sql(@"Create procedure MerchantTransactions 
+@merchantId BIGINT as 
+BEGIN
+ SELECT merc.TradingName, tx.id as 'TxId', tx.amount, cus.FirstName, cus.LastName
+ from Transactions tx
+ Inner join Merchants merc on tx.MerchantId = merc.Id
+ Inner join Customers cus on tx.CustomerId = cus.Id
+ where MerchantId = @merchantId
+END");
+
+            migrationBuilder.Sql(@"Create procedure AverageTransactionValue
+    as
+    BEGIN
+SELECT merc.Tradingname, AVG(amount) as ATV
+from Transactions tx
+    Inner
+join Merchants merc on tx.MerchantId = merc.Id
+group by merc.TradingName
+    END");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
