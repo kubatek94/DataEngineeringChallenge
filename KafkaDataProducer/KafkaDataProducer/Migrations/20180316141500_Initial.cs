@@ -74,16 +74,16 @@ namespace KafkaDataProducer.Migrations
                 columns: new[] { "Id", "CreatedDate", "FirstName", "LastName" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2018, 3, 10, 19, 49, 24, 25, DateTimeKind.Utc), "Joe", "Blogs" },
-                    { 9L, new DateTime(2018, 3, 15, 19, 49, 24, 25, DateTimeKind.Utc), "Nat", "Jones" },
-                    { 8L, new DateTime(2018, 3, 15, 14, 49, 24, 25, DateTimeKind.Utc), "Zee", "Smith" },
-                    { 7L, new DateTime(2018, 3, 15, 10, 49, 24, 25, DateTimeKind.Utc), "Alex", "Jones" },
-                    { 6L, new DateTime(2018, 3, 15, 9, 49, 24, 25, DateTimeKind.Utc), "Jack", "Taylor" },
-                    { 10L, new DateTime(2018, 3, 15, 19, 49, 24, 25, DateTimeKind.Utc), "Will", "Smith" },
-                    { 4L, new DateTime(2018, 3, 14, 19, 49, 24, 25, DateTimeKind.Utc), "Steve", "Evans" },
-                    { 3L, new DateTime(2018, 3, 13, 19, 49, 24, 25, DateTimeKind.Utc), "Adolf", "Walker" },
-                    { 2L, new DateTime(2018, 3, 12, 19, 49, 24, 25, DateTimeKind.Utc), "Dave", "Smith" },
-                    { 5L, new DateTime(2018, 3, 15, 9, 49, 24, 25, DateTimeKind.Utc), "Lee", "Brown" }
+                    { 1L, new DateTime(2018, 3, 11, 14, 14, 59, 863, DateTimeKind.Utc), "Joe", "Blogs" },
+                    { 9L, new DateTime(2018, 3, 16, 14, 14, 59, 864, DateTimeKind.Utc), "Nat", "Jones" },
+                    { 8L, new DateTime(2018, 3, 16, 9, 14, 59, 864, DateTimeKind.Utc), "Zee", "Smith" },
+                    { 7L, new DateTime(2018, 3, 16, 5, 14, 59, 864, DateTimeKind.Utc), "Alex", "Jones" },
+                    { 6L, new DateTime(2018, 3, 16, 4, 14, 59, 864, DateTimeKind.Utc), "Jack", "Taylor" },
+                    { 10L, new DateTime(2018, 3, 16, 14, 14, 59, 864, DateTimeKind.Utc), "Will", "Smith" },
+                    { 4L, new DateTime(2018, 3, 15, 14, 14, 59, 864, DateTimeKind.Utc), "Steve", "Evans" },
+                    { 3L, new DateTime(2018, 3, 14, 14, 14, 59, 864, DateTimeKind.Utc), "Adolf", "Walker" },
+                    { 2L, new DateTime(2018, 3, 13, 14, 14, 59, 864, DateTimeKind.Utc), "Dave", "Smith" },
+                    { 5L, new DateTime(2018, 3, 16, 4, 14, 59, 864, DateTimeKind.Utc), "Lee", "Brown" }
                 });
 
             migrationBuilder.InsertData(
@@ -91,27 +91,22 @@ namespace KafkaDataProducer.Migrations
                 columns: new[] { "Id", "AddressLine1", "City", "CreatedDate", "Postcode", "TradingName" },
                 values: new object[,]
                 {
-                    { 9L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "Other Taxi" },
-                    { 1L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "Chicken Shop" },
-                    { 2L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "SE10 0QW", "Phone Shop" },
-                    { 3L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "My Taxis" },
-                    { 4L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "MouseTrap" },
-                    { 5L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "MagsRUs" },
-                    { 6L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "House of Jack" },
-                    { 7L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "Russion Poisions" },
-                    { 8L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "Coffee Shop" },
-                    { 10L, null, "London", new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), "W1 4UT", "Another Taxi" }
+                    { 9L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "Other Taxi" },
+                    { 1L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 869, DateTimeKind.Utc), "W1 4UT", "Chicken Shop" },
+                    { 2L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "SE10 0QW", "Phone Shop" },
+                    { 3L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "My Taxis" },
+                    { 4L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "MouseTrap" },
+                    { 5L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "MagsRUs" },
+                    { 6L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "House of Jack" },
+                    { 7L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "Russion Poisions" },
+                    { 8L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "Coffee Shop" },
+                    { 10L, null, "London", new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), "W1 4UT", "Another Taxi" }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_CustomerId",
                 table: "Transactions",
                 column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transactions_MerchantId",
-                table: "Transactions",
-                column: "MerchantId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

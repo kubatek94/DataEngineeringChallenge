@@ -40,16 +40,16 @@ namespace KafkaDataProducer.Migrations
 
                     b.SeedData(new[]
                     {
-                        new { Id = 1L, CreatedDate = new DateTime(2018, 3, 10, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Joe", LastName = "Blogs" },
-                        new { Id = 2L, CreatedDate = new DateTime(2018, 3, 12, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Dave", LastName = "Smith" },
-                        new { Id = 3L, CreatedDate = new DateTime(2018, 3, 13, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Adolf", LastName = "Walker" },
-                        new { Id = 4L, CreatedDate = new DateTime(2018, 3, 14, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Steve", LastName = "Evans" },
-                        new { Id = 5L, CreatedDate = new DateTime(2018, 3, 15, 9, 49, 24, 25, DateTimeKind.Utc), FirstName = "Lee", LastName = "Brown" },
-                        new { Id = 6L, CreatedDate = new DateTime(2018, 3, 15, 9, 49, 24, 25, DateTimeKind.Utc), FirstName = "Jack", LastName = "Taylor" },
-                        new { Id = 7L, CreatedDate = new DateTime(2018, 3, 15, 10, 49, 24, 25, DateTimeKind.Utc), FirstName = "Alex", LastName = "Jones" },
-                        new { Id = 8L, CreatedDate = new DateTime(2018, 3, 15, 14, 49, 24, 25, DateTimeKind.Utc), FirstName = "Zee", LastName = "Smith" },
-                        new { Id = 9L, CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Nat", LastName = "Jones" },
-                        new { Id = 10L, CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 25, DateTimeKind.Utc), FirstName = "Will", LastName = "Smith" }
+                        new { Id = 1L, CreatedDate = new DateTime(2018, 3, 11, 14, 14, 59, 863, DateTimeKind.Utc), FirstName = "Joe", LastName = "Blogs" },
+                        new { Id = 2L, CreatedDate = new DateTime(2018, 3, 13, 14, 14, 59, 864, DateTimeKind.Utc), FirstName = "Dave", LastName = "Smith" },
+                        new { Id = 3L, CreatedDate = new DateTime(2018, 3, 14, 14, 14, 59, 864, DateTimeKind.Utc), FirstName = "Adolf", LastName = "Walker" },
+                        new { Id = 4L, CreatedDate = new DateTime(2018, 3, 15, 14, 14, 59, 864, DateTimeKind.Utc), FirstName = "Steve", LastName = "Evans" },
+                        new { Id = 5L, CreatedDate = new DateTime(2018, 3, 16, 4, 14, 59, 864, DateTimeKind.Utc), FirstName = "Lee", LastName = "Brown" },
+                        new { Id = 6L, CreatedDate = new DateTime(2018, 3, 16, 4, 14, 59, 864, DateTimeKind.Utc), FirstName = "Jack", LastName = "Taylor" },
+                        new { Id = 7L, CreatedDate = new DateTime(2018, 3, 16, 5, 14, 59, 864, DateTimeKind.Utc), FirstName = "Alex", LastName = "Jones" },
+                        new { Id = 8L, CreatedDate = new DateTime(2018, 3, 16, 9, 14, 59, 864, DateTimeKind.Utc), FirstName = "Zee", LastName = "Smith" },
+                        new { Id = 9L, CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 864, DateTimeKind.Utc), FirstName = "Nat", LastName = "Jones" },
+                        new { Id = 10L, CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 864, DateTimeKind.Utc), FirstName = "Will", LastName = "Smith" }
                     });
                 });
 
@@ -78,16 +78,16 @@ namespace KafkaDataProducer.Migrations
 
                     b.SeedData(new[]
                     {
-                        new { Id = 1L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Chicken Shop" },
-                        new { Id = 2L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "SE10 0QW", TradingName = "Phone Shop" },
-                        new { Id = 3L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "My Taxis" },
-                        new { Id = 4L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "MouseTrap" },
-                        new { Id = 5L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "MagsRUs" },
-                        new { Id = 6L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "House of Jack" },
-                        new { Id = 7L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Russion Poisions" },
-                        new { Id = 8L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Coffee Shop" },
-                        new { Id = 9L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Other Taxi" },
-                        new { Id = 10L, City = "London", CreatedDate = new DateTime(2018, 3, 15, 19, 49, 24, 27, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Another Taxi" }
+                        new { Id = 1L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 869, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Chicken Shop" },
+                        new { Id = 2L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "SE10 0QW", TradingName = "Phone Shop" },
+                        new { Id = 3L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "My Taxis" },
+                        new { Id = 4L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "MouseTrap" },
+                        new { Id = 5L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "MagsRUs" },
+                        new { Id = 6L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "House of Jack" },
+                        new { Id = 7L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Russion Poisions" },
+                        new { Id = 8L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Coffee Shop" },
+                        new { Id = 9L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Other Taxi" },
+                        new { Id = 10L, City = "London", CreatedDate = new DateTime(2018, 3, 16, 14, 14, 59, 870, DateTimeKind.Utc), Postcode = "W1 4UT", TradingName = "Another Taxi" }
                     });
                 });
 

@@ -20,7 +20,6 @@ namespace KafkaDataProducer
                 Console.WriteLine(e);
             }
 
-
             try
             {
                 Console.WriteLine("Starting to produce messages");

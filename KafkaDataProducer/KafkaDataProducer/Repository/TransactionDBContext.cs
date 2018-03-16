@@ -12,7 +12,10 @@ namespace KafkaDataProducer.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=sqlserver,1433;Database=TransactionDb;user id=sa;password=Y37uigwzrUA%;");
+            // Containerised
+             optionsBuilder.UseSqlServer(@"Server=sqlserver,1433;Database=TransactionDb;user id=sa;password=Y37uigwzrUA%;");
+            // Local
+            // optionsBuilder.UseSqlServer(@"Server=localhost,1400;Database=TransactionDb;user id=sa;password=Y37uigwzrUA%;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,7 +46,48 @@ namespace KafkaDataProducer.Repository
                 new Merchant { Id = 10, TradingName = "Another Taxi", City = "London", Postcode = "W1 4UT", CreatedDate = DateTime.UtcNow }
             );
 
+            CreateStoredProcedureMerchantTransactions();
+            CreateStoredProcedureAverageTransactionValue();
+
             base.OnModelCreating(modelBuilder);
+        }
+
+        private void CreateStoredProcedureMerchantTransactions()
+        {
+            Database.ExecuteSqlCommand(@"IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N'MerchantTransactions')
+                    AND type IN ( N'P', N'PC' ) ) 
+Drop procedure MerchantTransactions");
+
+            Database.ExecuteSqlCommand(@"Create procedure MerchantTransactions 
+@merchantId BIGINT as 
+BEGIN
+ SELECT merc.TradingName, tx.id as 'TxId', tx.amount, cus.FirstName, cus.LastName
+ from Transactions tx
+ Inner join Merchants merc on tx.MerchantId = merc.Id
+ Inner join Customers cus on tx.CustomerId = cus.Id
+
+ where MerchantId = @merchantId
+END");
+        }
+
+        private void CreateStoredProcedureAverageTransactionValue()
+        {
+            Database.ExecuteSqlCommand(@"IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N'AverageTransactionValue')
+                    AND type IN ( N'P', N'PC' ) ) 
+Drop procedure AverageTransactionValue");
+            Database.ExecuteSqlCommand(@"Create procedure AverageTransactionValue
+    as
+    BEGIN
+SELECT merc.Tradingname, AVG(amount) as ATV
+from Transactions tx
+    Inner
+join Merchants merc on tx.MerchantId = merc.Id
+group by merc.TradingName
+    END");
         }
     }
 }
